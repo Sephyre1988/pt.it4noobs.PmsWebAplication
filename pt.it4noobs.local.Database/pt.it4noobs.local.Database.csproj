@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.0.30" />
+    <PackageReference Include="NHibernate" Version="5.2.6" />
+    <PackageReference Include="SimplePersistence.Model" Version="3.3.0" />
+    <PackageReference Include="SimplePersistence.UoW" Version="3.3.0" />
+    <PackageReference Include="SimplePersistence.UoW.NH" Version="3.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Entities\Pms\" />
+    <Folder Include="UoW\Contracts\Repository\" />
+    <Folder Include="UoW\Implementation\LogicalArea\" />
+    <Folder Include="UoW\Implementation\Mapping\CustomTypes\" />
+    <Folder Include="UoW\Implementation\Mapping\Pms\" />
+    <Folder Include="UoW\Implementation\Repository\Pms\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions">
+      <HintPath>..\..\..\..\..\..\..\Program Files\dotnet\packs\Microsoft.AspNetCore.App.Ref\3.0.0\ref\netcoreapp3.0\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

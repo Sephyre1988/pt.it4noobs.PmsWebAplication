@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <Authors>Ruben Dias Ribeiro</Authors>
+    <Company>IT 4 Noobs</Company>
+    <Product>B2B API Broker</Product>
+    <AssemblyVersion>0.0.1.0</AssemblyVersion>
+    <FileVersion>0.0.1.0</FileVersion>
+    <NeutralLanguage>pt-PT</NeutralLanguage>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Endpoints\Response\" />
+    <Folder Include="Endpoints\Request\" />
+    <Folder Include="Properties\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SimpleSOAPClient" Version="2.1.0" />
+  </ItemGroup>
+
+</Project>
