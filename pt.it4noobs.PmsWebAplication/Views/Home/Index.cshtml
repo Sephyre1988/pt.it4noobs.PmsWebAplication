@@ -1,8 +1,36 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+@{
+  ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+
+@section 
+{
+  <!-- <link href="~/app/assets/css/primeng.min.css" rel="stylesheet" /> -->
+  <!-- <link href="~/app/assets/css/theme.css" rel="stylesheet" /> -->
+  <link href="~/app/assets/css/font-awesome.min.css" rel="stylesheet" />
+  <environment names="Development, Logistics_Development">
+    <link href="~/app/assets/css/vendor.bundle.css" rel="stylesheet" />
+    <link href="~/app/assets/css/styles.bundle.css" rel="stylesheet" />
+  </environment>
+  <environment names="Production,Staging,Quality,UserAcceptanceTesting,Patch, Logistics_Quality">
+    <link rel="stylesheet" asp-href-include="~/app/assets/css/vendor*.bundle.css" onerror="registerErrorLoadingScript('vendor.bundle.css');" />
+    <link rel="stylesheet" asp-href-include="~/app/assets/css/styles*.bundle.css" onerror="registerErrorLoadingScript('styles.bundle.css');" />
+  </environment>
+}
+
+@section scripts{
+  <environment names="Development, Logistics_Development">
+    <script src="~/app/scripts.bundle.js" onerror="registerErrorLoadingScript('scripts.bundle.js');"></script>
+    <script src="~/app/polyfills.bundle.js" onerror="registerErrorLoadingScript('polyfills.bundle.js');"></script>
+    <script src="~/app/vendor.chunk.js" onerror="registerErrorLoadingScript('vendor.bundle.js');"></script>
+    <script src="~/app/main.bundle.js"></script>
+  </environment>
+  <environment names="Production,Staging,Quality,UserAcceptanceTesting,Patch, Logistics_Quality">
+    <script asp-src-include="~/app/scripts*.bundle.js" onerror="registerErrorLoadingScript('scripts.bundle.js');"></script>
+    <script asp-src-include="~/app/polyfills*.bundle.js" onerror="registerErrorLoadingScript('polyfills.bundle.js');"></script>
+    <script asp-src-include="~/app/vendor.*.*.chunk.js" onerror="registerErrorLoadingScript('vendor.bundle.js');"></script>
+    <script asp-src-include="~/app/main*.bundle.js"></script>
+  </environment>
+}
+
+<app-root></app-root>

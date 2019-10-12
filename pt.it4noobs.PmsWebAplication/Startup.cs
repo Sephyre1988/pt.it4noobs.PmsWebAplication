@@ -3,17 +3,39 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 
 namespace pt.it4noobs.Local.PmsWebAplication
 {
 	public class Startup
 	{
-		public Startup(IConfiguration configuration)
-		{
-			Configuration = configuration;
-		}
+		private readonly IWebHostEnvironment _env;
+		private readonly ILogger<Startup> _logger;
+		private readonly IConfigurationRoot _configuration;
 
-		public IConfiguration Configuration { get; }
+		public Startup(IWebHostEnvironment env, ILogger<Startup> logger)
+		{
+			_env = env;
+			_logger = logger;
+
+			_logger.LogInformation(@"Hosting configurations:
+    ApplicationName -> {applicationName}
+    EnvironmentName -> {environmentName}
+    WebRootPath -> {webRootPath}
+    ContentRootPath -> {contentRootPath}",
+				env.ApplicationName, env.EnvironmentName, env.WebRootPath, env.ContentRootPath);
+
+			_logger.LogDebug("Loading application configurations");
+			var builder = new ConfigurationBuilder()
+				.SetBasePath(env.ContentRootPath)
+				.AddJsonFile("appsettings.json", false, true)
+				.AddJsonFile($"appsettings.{env.EnvironmentName}.json", true, true);
+
+			builder.AddEnvironmentVariables();
+
+			_configuration = builder.Build();
+
+		}
 
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)

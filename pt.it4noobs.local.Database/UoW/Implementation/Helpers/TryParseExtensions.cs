@@ -45,4 +45,3 @@ namespace pt.it4noobs.local.Database.UoW.Implementation.Helpers
 		}
 	}
 }
-}

@@ -1,0 +1,48 @@
+{
+    "compileOnSave": false,
+    "compilerOptions": {
+        "importHelpers": true,
+        "outDir": "./wwwroot",
+        "sourceMap": true,
+        "declaration": false,
+        "skipLibCheck": true,
+        "moduleResolution": "node",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "target": "es5",
+        "removeComments": true,
+        "noUnusedLocals": false,
+        "noImplicitReturns": true,
+        "pretty": true,
+        "allowJs": false,
+        "checkJs": false,
+        "strict": true,
+        "strictNullChecks": false,
+        "baseUrl": "",
+        "paths": {
+            "@contracts/*": [
+                "./Applications/Contracts/*"
+            ],
+            "@core/*": [
+                "./Applications/Core/*"
+            ],
+            "@services/*": [
+                "./Applications/Services/*"
+            ],
+            "@shared/*": [
+                "./Applications/Shared/*"
+            ],
+            "@sharedModules/*": [
+                "./Applications/SharedModules/src/app/modules/*"
+            ]
+        },
+        "typeRoots": [
+            "node_modules/@types"
+        ],
+        "lib": [
+            "es2017",
+            "dom"
+        ],
+        "module": "es2015"
+    }
+}
